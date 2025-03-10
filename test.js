@@ -44,3 +44,11 @@ totalMorceaux = playlist.length
 
 console.log(playlist)
 console.log(totalMorceaux)
+
+let mot = prompt('écrivez OK')
+
+while(mot !== 'OK'){
+    mot = prompt('écrivez OK')
+}
+
+console.log('tu a écrit OK')
