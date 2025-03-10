@@ -1,68 +1,69 @@
+/*********************************************************************************
+ * 
+ * Ce fichier contient toutes les fonctions nécessaires au fonctionnement du jeu. 
+ * 
+ *********************************************************************************/
+
 /**
- * Fonction qui affiche le score final du joueur dans la console.
- * @param {number} score - Nombre de bonnes réponses.
- * @param {number} nbMotProposes - Nombre total de mots ou phrases proposés.
+ * Cette fonction affiche dans la console le score de l'utilisateur
+ * @param {number} score : le score de l'utilisateur
+ * @param {number} nbMotsProposes : le nombre de mots proposés à l'utilisateur
  */
-function afficherResultat(score, nbMotProposes) {
-    console.log('Votre score est de ' + score + '/' + nbMotProposes); // Affiche le score final dans la console
-    return message; // ❌ Erreur ici : 'message' n'existe pas. Cette ligne ne sert à rien et peut être supprimée.
+function afficherResultat(score, nbMotsProposes) {
+    console.log("Votre score est de " + score + " sur " + nbMotsProposes)
 }
 
 /**
- * Fonction qui demande à l'utilisateur de choisir entre jouer avec des mots ou des phrases.
- * Tant que l'utilisateur ne saisit pas "mots" ou "phrases", la question est reposée.
- * @returns {string} - Retourne le choix de l'utilisateur ("mots" ou "phrases").
+ * Cette fonction demande à l'utilisateur de choisir entre "mots" et "phrases" et retourne le choix de l'utilisateur
+ * @return {string} : le choix de l'utilisateur, ce choix est nécessairement "mots" ou "phrases
  */
-function choisirPhraseOuMots() {
-    let choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?"); // Demande à l'utilisateur de choisir
-
-    // Vérifie si l'utilisateur a entré une réponse valide (mots ou phrases), sinon on redemande
+function choisirPhrasesOuMots() {
+    // Tant que l'utilisateur n'a pas saisi "mots" ou "phrases", on lui redemande de saisir un choix
+    let choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?")
     while (choix !== "mots" && choix !== "phrases") {
-        choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?");
+        choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?")
     }
-
-    return choix; // Retourne le choix pour l'utiliser dans la suite du programme
+    return choix
 }
 
 /**
- * Fonction qui lance une boucle demandant à l'utilisateur d'entrer les mots ou phrases affichés.
- * @param {Array} ListeProposes - Tableau contenant les mots ou phrases à proposer.
- * @returns {number} - Retourne le score final du joueur.
+ * Cette fonction lance la boucle de jeu, c'est à dire qu'elle demande à l'utilisateur de saisir tous les mots
+ * contenus dans le tableau listePropositions. A chaque mot saisi, on incrémente le score de l'utilisateur
+ * 
+ * @param {array[string]} listePropositions 
+ * @return {number} : le score de l'utilisateur
  */
-function lancerBoucleDeJeu(ListeProposes) {
-    let score = 0; // Initialisation du score à 0
-
-    // Parcours de tous les éléments du tableau ListeProposes
-    for (let i = 0; i < ListeProposes.length; i++) {
-        let motUtilisateur = prompt("Entrez le mot : " + ListeProposes[i]); // Demande à l'utilisateur de saisir le mot ou la phrase affichée
-
-        // Vérifie si l'utilisateur a bien tapé le mot ou la phrase sans erreur
-        if (motUtilisateur === ListeProposes[i]) {
-            score++; // Si c'est correct, on ajoute 1 au score
+function lancerBoucleDeJeu(listePropositions) {
+    let score = 0
+    for (let i = 0; i < listePropositions.length; i++) {
+        // On demande à l'utilisateur de saisir le mot correspondant à l'indice i
+        let motUtilisateur = prompt("Entrez le mot : " + listePropositions[i])
+        if (motUtilisateur === listePropositions[i]) {
+            // Si le mot saisi par l'utilisateur est correct, on incrémente le score
+            score++
         }
     }
-
-    return score; // Retourne le score final
+    return score
 }
 
 /**
- * Fonction principale qui lance le jeu et affiche le score final.
+ * Cette fonction lance le jeu. 
+ * Elle demande à l'utilisateur de choisir entre "mots" et "phrases" et lance la boucle de jeu correspondante
  */
-function lancerjeu() {
-    let choix = choisirPhraseOuMots(); // Demande à l'utilisateur de choisir entre "mots" ou "phrases"
-    let score = 0; // Initialisation du score
-    let nbMotProposes = 0; // Initialisation du nombre de mots/phrases proposés
+function lancerJeu() {
+    // Initialisations
+    let choix = choisirPhrasesOuMots()
+    let score = 0
+    let nbMotsProposes = 0
 
-    // Vérifie le choix de l'utilisateur et appelle la bonne liste
-    if (choix === 'mots') {
-        score = lancerBoucleDeJeu(listeMots); // Joue avec la liste des mots et récupère le score
-        nbMotProposes = listeMots.length; // Stocke le nombre total de mots
+    // On détermine la liste des mots ou des phrases à proposer à l'utilisateur
+    if (choix === "mots") {
+        score = lancerBoucleDeJeu(listeMots)
+        nbMotsProposes = listeMots.length
     } else {
-        score = lancerBoucleDeJeu(listePhrases); // Joue avec la liste des phrases et récupère le score
-        nbMotProposes = listePhrases.length; // Stocke le nombre total de phrases
+        score = lancerBoucleDeJeu(listePhrases)
+        nbMotsProposes = listePhrases.length
     }
 
-    afficherResultat(score, nbMotProposes); // Affiche le score final du joueur
+    afficherResultat(score, nbMotsProposes)
 }
-
-
