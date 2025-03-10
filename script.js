@@ -1,34 +1,39 @@
-const listeMots = ['Cachalot', 'Pétunia', 'Serviette']
-
-const listePhrase = ['Pas de panique !', 'La vie, l’univers et le reste', 'Merci pour le poisson']
+// Déclaration des tableaux contenant les listes des mots proposés à l'utilisateur
+const listeMots = ["Cachalot", "Pétunia", "Serviette"]
+const listePhrases = ["Pas de panique !", "La vie, l'univers et le reste", "Merci pour le poisson"]
 
 let score = 0
 
-let demandeUtilisateur = prompt("mot où phrase choisissez")
-
-if(demandeUtilisateur === "mot"){
-    for(let i = 0; i < listeMots.length; i++){
-        let motUtilisateur = prompt('Entrez le mot : ' + listeMots[i])
-        if (motUtilisateur === listeMots[i]) {
-            score++
-        }
-    }
+// Déclaration de la variable contenant le choix de l'utilisateur
+let choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?")
+// Tant que l'utilisateur n'a pas saisi "mots" ou "phrases", on lui redemande de saisir un choix
+while (choix !== "mots" && choix !== "phrases") {
+    choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?")
 }
 
-if (demandeUtilisateur === "phrase") {
-    for(let i = 0; i < listePhrase.length; i++){
-        let motUtilisateur = prompt('Entrez la phrase : ' + listePhrase[i])
-        if (motUtilisateur === listePhrase[i]) {
+if (choix === "mots") {
+    // On parcourt le tableau des mots
+    for (let i = 0; i < listeMots.length; i++) {
+        // On demande à l'utilisateur de saisir le mot correspondant à l'indice i
+        let motUtilisateur = prompt("Entrez le mot : " + listeMots[i])
+        if (motUtilisateur === listeMots[i]) {
+            // Si le mot saisi par l'utilisateur est correct, on incrémente le score
             score++
         }
     }
-} 
-
-
-
-
-// Affichage du score de l'utilisateur
-console.log("Votre score est de " + score + " sur 3")
+    console.log("Votre score est de " + score + " sur " + listeMots.length)
+} else {
+    // On parcourt le tableau des phrases
+    for (let i = 0; i < listePhrases.length; i++) {
+        // On demande à l'utilisateur de saisir la phrase correspondant à l'indice i
+        let phraseUtilisateur = prompt("Entrez la phrase : " + listePhrases[i])
+        if (phraseUtilisateur === listePhrases[i]) {
+            // Si la phrase saisi par l'utilisateur est correct, on incrémente le score
+            score++
+        }
+    }
+    console.log("Votre score est de " + score + " sur " + listePhrases.length)
+}
 
 
 
