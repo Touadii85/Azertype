@@ -1,15 +1,27 @@
-// Déclaration des tableaux contenant les listes des mots proposés à l'utilisateur
-const listeMots = ["Cachalot", "Pétunia", "Serviette"]
-const listePhrases = ["Pas de panique !", "La vie, l'univers et le reste", "Merci pour le poisson"]
-
 let score = 0
 
+function choisirPhraseOuMots(){
 // Déclaration de la variable contenant le choix de l'utilisateur
 let choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?")
 // Tant que l'utilisateur n'a pas saisi "mots" ou "phrases", on lui redemande de saisir un choix
 while (choix !== "mots" && choix !== "phrases") {
     choix = prompt("Avec quelle liste désirez-vous jouer : 'mots' ou 'phrases' ?")
 }
+}
+
+function afficherResultat (score, nb) {
+    let message = 'Votre score est de ' + score + ' sur ' + nb
+    return message
+}
+
+choisirPhraseOuMots()
+
+function lancerBoucleDeJeu(){
+    
+}
+
+
+
 
 if (choix === "mots") {
     // On parcourt le tableau des mots
@@ -21,7 +33,8 @@ if (choix === "mots") {
             score++
         }
     }
-    console.log("Votre score est de " + score + " sur " + listeMots.length)
+    let result = afficherResultat(score, listeMots.length)
+    console.log(result)
 } else {
     // On parcourt le tableau des phrases
     for (let i = 0; i < listePhrases.length; i++) {
@@ -32,52 +45,7 @@ if (choix === "mots") {
             score++
         }
     }
-    console.log("Votre score est de " + score + " sur " + listePhrases.length)
+    let result2 = afficherResultat(score, listeMots.length)
+    console.log(result2)
 }
 
-
-
-/*
-console.log("Hello World");
-
-let motTapeOk = true // Essayez de mettre false à la place de true
-
-if (motTapeOk) {
-    console.log("Bravo, vous avez correctement tapé le mot")
-} else {
-    console.log("Échec, le mot n'est pas correct")
-}
-
-let painNoix = true
-let MaMonnaie = 8
-let prix = 6
-
-if(painNoix === true && MaMonnaie>=prix){
-    console.log("j\'achète du pain au noix")
-}else{
-    console.log("j\'achète une baguette")
-}
-
-
-let listeMots = ["Cachalot", "Pétunia", "Serviette"]
-let score = 0
-
-let motUtilisateur = prompt("Entrer le mot "+listeMots[0])
-
-if(listeMots[0] === motUtilisateur){
-    score ++
-}
-
-motUtilisateur = prompt("Entrer le mot "+listeMots[1])
-
-if(listeMots[1] === motUtilisateur){
-    score ++
-}
-
-motUtilisateur = prompt("Entrer le mot "+listeMots[2])
-
-if(listeMots[2] === motUtilisateur){
-    score ++
-}
-
-console.log(score)*/
