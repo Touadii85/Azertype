@@ -19,5 +19,26 @@ if(painNoix === true && MaMonnaie>=prix){
     console.log("j\'achète une baguette")
 }
 
-let motUtilisateur = prompt("entrer un mot :")
-console.log(motUtilisateur)
+
+let listeMots = ["Cachalot", "Pétunia", "Serviette"]
+let score = 0
+
+let motUtilisateur = prompt("Entrer le mot "+listeMots[0])
+
+if(listeMots[0] === motUtilisateur){
+    score ++
+}
+
+motUtilisateur = prompt("Entrer le mot "+listeMots[1])
+
+if(listeMots[1] === motUtilisateur){
+    score ++
+}
+
+motUtilisateur = prompt("Entrer le mot "+listeMots[2])
+
+if(listeMots[2] === motUtilisateur){
+    score ++
+}
+
+console.log(score)
