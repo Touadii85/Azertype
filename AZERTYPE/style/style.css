@@ -1,127 +1,126 @@
-/* Mise en forme des titres */
-h1 {
-    margin: 10px;
-    font-size: 60px;
-    font-weight: 900;
-    color: var(--color-primary);
-}
-
-h2 {
-    margin: 10px;
-    font-size: 30px;
-    font-weight: 600;
-    color: var(--color-secondary);
-}
-
-h3 {
-    margin: 10px;
-    font-size: 17px;
-    font-weight: 500;
-    color: var(--color-secondary);
-}
-
-/* Mise en forme du header */
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Zone d'options */
-.optionSource {
-    margin: 20px;
-}
-
-.optionSource input[type='radio']:not(:first-child) {
-    margin-left: 20px;
-}
-
-/* Zone où sera affiché le texte (mot ou phrase) à recopier */
-.zoneProposition {
-    display: flex; /* Centre le texte horizontalement */
-    align-items: center; /* Centre le texte verticalement */
-    justify-content: center; /* Centre totalement */
-    width: 100%; /* Prend toute la largeur disponible */
-    margin: 10px 0 10px 0; /* Ajoute un petit espace au-dessus et en dessous */
-    padding: 20px; /* Ajoute un espace intérieur */
-    border-radius: 20px; /* Arrondit les bords */
-    background-color: white; /* Fond blanc */
-    font-size: 30px; /* Taille du texte */
-    font-weight: 600; /* Texte en gras */
-    color: var(--color-primary); /* Couleur principale */
-}
-
-/* Zone de saisie */
-.zoneSaisie {
-    display: flex; /* Aligne les éléments en ligne */
-    justify-content: space-between; /* Espace entre l'input et le bouton */
-    width: 100%; /* Prend toute la largeur disponible */
-    margin-bottom: 30px; /* Ajoute un espace en dessous */
-}
-
-/* Eléments du formulaire de saisie */
-.zoneSaisie input[type='text'] {
-    width: 80%; /* Largeur de l'input */
-}
-
-.zoneSaisie button {
-    width: 20%; /* Largeur du bouton */
-}
-
-.zoneScore {
-    font-size: 20px; /* Taille du texte */
-}
-
-footer {
-    position: sticky; /* Garde le footer en bas */
-    bottom: 0; /* Le colle en bas de la fenêtre */
-    display: flex; /* Centre le texte */
-    justify-content: center; /* Centre horizontalement */
-    width: 100%; /* Prend toute la largeur */
-    padding: 30px; /* Ajoute de l’espace intérieur */
-    font-weight: 600; /* Texte en gras */
-    font-size: 17px; /* Taille du texte */
-    color: white; /* Texte blanc */
-    background-color: var(--color-secondary); /* Couleur de fond */
-}
-
 /**
- * Reset
+ * Reset (réinitialise les styles par défaut des navigateurs)
  */
  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les paddings par défaut */
+    box-sizing: border-box; /* Inclut padding et bordure dans la taille totale des éléments */
 }
 
 /**
  * Éléments génériques
  */
 
+/* Définition des variables CSS globales (couleurs principales utilisées sur le site) */
 body {
-    --color-primary: #f76c5e;
-    --color-secondary: #f68e5f;
-    --color-tertiary: #ffeee6;    
+    --color-primary: #f76c5e;   /* Couleur principale (rouge corail) */
+    --color-secondary: #f68e5f; /* Couleur secondaire (orange doux) */
+    --color-tertiary: #ffeee6;  /* Couleur tertiaire (beige très clair) */    
+}
+
+/* Mise en forme des titres principaux (H1) */
+h1 {
+    margin: 10px; /* Marge extérieure de 10px */
+    font-size: 60px; /* Taille de police très grande */
+    font-weight: 900; /* Gras très prononcé */
+    color: var(--color-primary); /* Couleur principale */
+}
+
+/* Mise en forme des titres secondaires (H2) */
+h2 {
+    margin: 10px;
+    font-size: 30px; /* Taille intermédiaire */
+    font-weight: 600; /* Gras moyen */
+    color: var(--color-secondary); /* Couleur secondaire */
+}
+
+/* Mise en forme des sous-titres (H3) */
+h3 {
+    margin: 10px;
+    font-size: 17px; /* Taille petite/intermédiaire */
+    font-weight: 500; /* Gras léger */
+    color: var(--color-secondary);
+}
+
+/* Mise en forme des boutons radio (effet visuel noir et blanc) */
+input[type='radio'] {
+    filter: grayscale(1); /* Effet noir et blanc complet sur le bouton radio */
+}
+
+/* Mise en forme des champs texte et email */
+input[type='text'],
+input[type='email'] {
+    width: 100%; /* Largeur maximale disponible */
+    margin-right: 10px; /* Marge droite extérieure */
+    padding: 5px; /* Padding intérieur léger */
+    border: none; /* Aucune bordure visible */
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 17px;
+    font-weight: 600; /* Gras moyen */
+    color: var(--color-primary);
+}
+
+/* Style du placeholder (texte indicatif dans les champs) */
+input[type='text']::placeholder,
+input[type='email']::placeholder {
+    color: var(--color-secondary);
+    opacity: 50%; /* Opacité réduite à 50% */
+}
+
+/* Mise en forme des boutons */
+button {
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-secondary);
+    background-color: white;
+}
+
+/* Effet au survol des boutons */
+button:hover {
+    color: var(--color-primary);
+    background-color: var(--color-tertiary);
+    cursor: pointer; /* Affiche un curseur main pour indiquer l'interactivité */
+}
+
+/* Effet lorsqu'un bouton est sélectionné (focus via tabulation) */
+button:focus {
+    background-color: var(--color-tertiary);
+    border: 3px solid var(--color-primary);
+    padding: 2px;
 }
 
 /**
- * Élément principal : Mise en page globale
+ * Éléments principaux du document HTML
  */
- body {
-    display: flex; /* Active le modèle flexbox */
-    flex-direction: column; /* Empile les éléments verticalement */
-    justify-content: space-between; /* Répartit l’espace entre les éléments */
-    align-items: center; /* Centre les éléments horizontalement */
-    min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    font-family: 'Roboto', sans-serif; /* Définit la police globale */
+
+/* Mise en forme globale du corps de la page */
+body {
+    display: flex; /* Utilise Flexbox pour structurer les éléments */
+    flex-direction: column; /* Organisation verticale des éléments */
+    justify-content: space-between; /* Répartition homogène verticale */
+    align-items: center; /* Alignement horizontal au centre */
+    min-height: 100vh; /* Hauteur minimum égale à la hauteur totale de l'écran */
+    font-family: 'Roboto', sans-serif; /* Police générale */
 }
 
+/* Mise en forme du header (haut de page) */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer horizontalement les éléments du header */
+}
+
+/* Mise en forme du main (contenu principal) */
 main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 50%; /* Largeur du main égale à la moitié de la fenêtre */
     min-width: 200px;
     margin-bottom: 50px;
     padding: 50px;
@@ -129,26 +128,156 @@ main {
     color: white;
     font-size: 17px;
     font-weight: 500;
-    border-radius: 30px;
+    border-radius: 30px; /* Coins très arrondis */
+    background-color: var(--color-secondary); /* Couleur de fond secondaire */
+}
+
+/* Mise en forme du footer (bas de page) */
+footer {
+    position: sticky; /* Reste collé en bas même au scroll */
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
     background-color: var(--color-secondary);
 }
 
 /**
- * Responsive
+ * Mise en forme des zones spécifiques
  */
 
- /* En dessous de 1200 px */
+/* Options (boutons radio) */
+.optionSource {
+    margin: 20px; /* Marge extérieure */
+}
+
+/* Espacement spécifique entre les boutons radio sauf le premier */
+.optionSource input[type='radio']:not(:first-child) {
+    margin-left: 20px;
+}
+
+/* Zone où la proposition (texte à recopier) est affichée */
+.zoneProposition {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Pleine largeur disponible */
+    margin: 10px 0 10px 0;
+    padding: 20px;
+    border-radius: 20px; /* Coins arrondis */
+    background-color: white;
+    font-size: 30px; /* Taille grande */
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Zone de saisie utilisateur */
+.zoneSaisie {
+    display: flex;
+    justify-content: space-between; /* Espacement entre le bouton et le champ texte */
+    width: 100%; /* Pleine largeur disponible */
+    margin-bottom: 30px;
+}
+
+/* Largeur spécifique pour le champ texte dans la zone de saisie */
+.zoneSaisie input[type='text'] {
+    width: 80%; /* Champ texte occupant 80% */
+}
+
+/* Largeur spécifique pour le bouton dans la zone de saisie */
+.zoneSaisie button {
+    width: 20%; /* Bouton occupant 20% */
+}
+
+/* Affichage du score utilisateur */
+.zoneScore {
+    font-size: 20px; /* Taille moyenne */
+}
+
+/* Zone contenant le bouton partage */
+.zonePartage {
+    padding-top: 20px;
+}
+
+/**
+ * Gestion des popups (éléments flottants)
+ */
+
+/* Fond du popup caché par défaut */
+.popupBackground {
+    display: none;
+    position: fixed; /* Fixé par rapport à la fenêtre */
+    height: 100vh; /* Hauteur pleine fenêtre */
+    width: 100vw; /* Largeur pleine fenêtre */
+    background-color: rgba(255, 255, 255, 0.5); /* Blanc transparent */
+}
+
+/* Popup centré sur la page */
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centre précisément le popup */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: #f76c5e;
+    border-radius: 30px; /* Coins très arrondis */
+    z-index: 1; /* Priorité d'affichage */
+}
+
+/* Affiche le popup lorsqu'il a la classe active */
+.active {
+    display: flex !important;
+}
+
+.popup p {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.popup div {
+    font-size: 25px;
+    padding: 5px;
+    padding-bottom: 15px;
+}
+
+/* Espacement pour les champs dans le popup */
+.popup input {
+    margin-bottom: 10px;
+}
+
+/* Espacement boutons dans le popup */
+.popup button {
+    margin: 5px;
+}
+
+/**
+ * Responsive (adaptation aux écrans plus petits)
+ */
+
+/* En dessous de 1200px */
 @media screen and (max-width: 1200px) {
     main {
-        width: 60%;
+        width: 60%; /* Adaptation largeur principale à 60% */
         padding: 30px;
     }
 }
 
-/* En dessous de 800 px */
+/* En dessous de 800px */
 @media screen and (max-width: 800px) {
     main {
-        width: 90%;
+        width: 90%; /* Largeur à 90% pour écrans très petits */
         padding: 10px;
     }
 }
