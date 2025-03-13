@@ -1,5 +1,7 @@
 // Lancement du jeu
 lancerJeu();
+// Initialisation des écouteurs d'événements pour la popup
+initAddEventListenerPopup();
 
 // // Sélectionne l'élément input où l'utilisateur écrit son texte
 // let inputEcriture = document.getElementById('inputEcriture');
